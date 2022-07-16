@@ -1,0 +1,42 @@
+version: '3'
+services:
+  backend:
+    restart: unless-stopped
+    container_name: backend
+    image: backend
+    build: './backend'
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend/:/app
+      - /app/node_modules
+    depends_on:
+      - database
+  database:
+    container_name: database
+    image: database
+    build: './database/'
+    expose:
+      - "27017"
+    volumes:
+      - ./database/data:/data/db
+  frontend:
+    container_name: frontend
+    image: frontend
+    restart: unless-stopped
+    build: ./frontend
+    expose:
+      - "3000"
+  nginx:
+    restart: unless-stopped
+    container_name: nginx
+    image: nginx
+    build: ./nginx
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d
+    ports:
+      - 80:80
+    depends_on:
+      - backend
+      - frontend
+

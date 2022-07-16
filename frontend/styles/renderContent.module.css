@@ -1,0 +1,10 @@
+.Instructions h1 {
+  font-size: 20px;
+}
+
+.Instructions p {
+  border: solid 1px #bdbdbb;
+  padding: 5px;
+  border-radius: 2px;
+  font-size: 12px;
+}

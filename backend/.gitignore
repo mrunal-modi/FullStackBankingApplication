@@ -1,0 +1,6 @@
+# Ignore
+.env.local
+.next
+secret
+node_modules
+data

@@ -1,0 +1,72 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "CRUD",
+    "description": "Application API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Bank",
+      "description": "API for users in the system"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+
+  "paths": {
+    "/account/all": {
+      "get": {
+        "tags": ["account"],
+        "summary": "Get all user accounts",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/account/findOne/{uid}": {
+        "get": {
+            "tags": ["account"],
+            "description": "Get user account based on uid",
+            "parameters": [
+                {
+                    "name": "uid",
+                    "in": "path",
+                    "description": "UID that we want to list",
+                    "schema": {
+                        "$ref": "#/definitions/account"
+                    }
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "OK"
+                }
+            }
+        }
+    }
+  },
+  "definitions": {
+    "account": {
+      "required": ["uid", "email"],
+      "properties": {
+        "uid": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
