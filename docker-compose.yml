@@ -21,9 +21,9 @@ services:
     volumes:
       - ./database/data:/data/db
   frontend:
-    container_name: frontend
-    image: frontend
     restart: unless-stopped
+    image: frontend
+    container_name: frontend
     build: ./frontend
     expose:
       - "3000"
