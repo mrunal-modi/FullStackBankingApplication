@@ -1,0 +1,8 @@
+# Ignore
+.DS_Store
+.vscode
+.env.local
+.next
+secret
+node_modules
+data

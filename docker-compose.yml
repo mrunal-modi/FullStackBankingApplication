@@ -16,8 +16,8 @@ services:
     container_name: database
     image: database
     build: './database/'
-    expose:
-      - "27017"
+    ports:
+      - 27017:27017
     volumes:
       - ./database/data:/data/db
   frontend:
