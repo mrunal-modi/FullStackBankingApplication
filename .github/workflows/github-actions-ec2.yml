@@ -1,9 +1,9 @@
-name: Push-to-EC2
+name: CICD
 on:
   push:
 jobs:
   build:
-    name: CICD
+    name: CI
     runs-on: ubuntu-latest
     steps:
       - name: Git Clone

@@ -7,12 +7,20 @@ const dal = require("./dal.js");
 
 // Firebase
 var admin = require("firebase-admin");
-var serviceAccount = require("./secret/ServiceAccountKey.json");
+// var serviceAccount = require("./secret/ServiceAccountKey.json");
+// admin.initializeApp({
+//     credential: admin.credential.cert(serviceAccount),
+//     databaseURL:
+//         "https://fullstackbank-default-rtdb.firebaseio.com/",
+// });
 admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL:
-        "https://fullstackbank-default-rtdb.firebaseio.com/",
+    credential: admin.credential.cert({
+        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+        clientEmail: process.env.NEXT_PUBLIC_FIREBASE_CLIENT_EMAIL,
+        privateKey: process.env.NEXT_PUBLIC_FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      }),
 });
+
 
 // Swagger URL /api-docs
 var options = {
