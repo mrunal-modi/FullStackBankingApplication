@@ -34,4 +34,4 @@ jobs:
       - name: Build the docker-compose stack
         run: make run
       - name: Run Tests
-        run: node ./backend/puppeteer.js
+        run: npm test
