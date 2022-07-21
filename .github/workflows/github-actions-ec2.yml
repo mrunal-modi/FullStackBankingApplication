@@ -9,6 +9,7 @@ jobs:
       - name: Git Clone
         uses: actions/checkout@v2
       - name: Creating Env variable for Next Js
+      - run: |
         touch ./frontend/.env.local
         echo NEXT_PUBLIC_FIREBASE_API_KEY = ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }} >> ./frontend/.env.local
         echo NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN = ${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }} >> ./frontend/.env.local
