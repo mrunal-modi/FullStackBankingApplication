@@ -44,6 +44,7 @@ export default function Deposit() {
                   <FormGroup>
                     <Label>Amount:</Label>
                     <Input
+                      className="Amount"
                       disabled={loading}
                       onChange={(e) =>
                         setData({ ...data, amount: e.target.value })
@@ -55,6 +56,7 @@ export default function Deposit() {
                     />
                   </FormGroup>
                   <Button
+                    className="Deposit-Button"
                     style={{ float: "right", width: 120 }}
                     color="primary"
                     disabled={loading}

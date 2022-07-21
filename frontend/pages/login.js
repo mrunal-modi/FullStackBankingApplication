@@ -55,6 +55,7 @@ function Login(props) {
                   <FormGroup>
                     <Label>Email:</Label>
                     <Input
+                      className="Email-identifier"
                       onChange={(event) => onChange(event)}
                       name="identifier"
                       style={{ height: 50, fontSize: "1.2em" }}
@@ -63,6 +64,7 @@ function Login(props) {
                   <FormGroup style={{ marginBottom: 30 }}>
                     <Label>Password:</Label>
                     <Input
+                      className="Email-password"
                       onChange={(event) => onChange(event)}
                       type="password"
                       name="password"
@@ -77,6 +79,7 @@ function Login(props) {
                       </a>
                     </span>
                     <Button
+                      className="Login-Button"
                       style={{ float: "right", width: 120 }}
                       color="primary"
                       onClick={() => {

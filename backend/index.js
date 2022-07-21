@@ -5,23 +5,22 @@ const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
 const dal = require("./dal.js");
 
+// Firebase
 var admin = require("firebase-admin");
 var serviceAccount = require("./secret/ServiceAccountKey.json");
-
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL:
         "https://fullstackbank-default-rtdb.firebaseio.com/",
 });
 
+// Swagger URL /api-docs
 var options = {
     explorer: true,
     swaggerOptions: {
         url: "/api-docs/swagger.json",
     },
 };
-
-// API Documentation using Swagger URL /api-docs
 app.use(
     "/api-docs",
     swaggerUi.serve,
@@ -164,6 +163,15 @@ app.get("/api/account/all", function (req, res) {
     });
 });
 
+// --------------------------
+//   for supertest testing
+//   comment out listener
+// --------------------------
+// start server
+// -----------------------
 var port = 8080;
 app.listen(port);
 console.log("Running on port: " + port);
+
+// export app for testing
+module.exports = app;
