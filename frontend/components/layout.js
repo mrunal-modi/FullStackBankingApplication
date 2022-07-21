@@ -29,9 +29,9 @@ const Layout = (props) => {
           </NavItem>
 
           {user && (
-          <NavItem className="nav-item DepositPage">
+          <NavItem className="nav-item">
             <Link className="nav-link" href="/deposit">
-            <a className="nav-link">Deposit</a>
+            <a className="nav-link DepositPage">Deposit</a>
             </Link>
           </NavItem>)}
 

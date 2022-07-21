@@ -7,7 +7,7 @@ const dal = require("./dal.js");
 
 // Firebase
 var admin = require("firebase-admin");
-var serviceAccount = require("./secret/ServiceAccountKey.json");
+// var serviceAccount = require("./secret/ServiceAccountKey.json");
 // Using admin secret from serviceAccount Json file
 // admin.initializeApp({
 //     credential: admin.credential.cert(serviceAccount),
@@ -16,6 +16,7 @@ var serviceAccount = require("./secret/ServiceAccountKey.json");
 // });
 
 // Using admin secret from serviceAccount .env
+console.log(process.env);
 admin.initializeApp({
     credential: admin.credential.cert({
         type: process.env.NEXT_PUBLIC_TYPE,
