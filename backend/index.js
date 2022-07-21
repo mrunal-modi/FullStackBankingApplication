@@ -13,6 +13,7 @@ var admin = require("firebase-admin");
 //     databaseURL:
 //         "https://fullstackbank-default-rtdb.firebaseio.com/",
 // });
+
 admin.initializeApp({
     credential: admin.credential.cert({
         projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
