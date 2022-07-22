@@ -33,3 +33,4 @@ jobs:
           echo NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }} >> ./backend/.env
       - name: Build the docker-compose stack
         run: make run
+        
